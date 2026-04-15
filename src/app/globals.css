@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-neon-blue: #00f0ff;
+  --color-neon-pink: #ff003c;
+  --color-neon-purple: #8a2be2;
+  --color-dark-bg: #050510;
+  --color-dark-card: rgba(15, 15, 25, 0.7);
+  
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-[var(--color-dark-bg)] text-white font-sans antialiased selection:bg-neon-pink selection:text-white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.3);
+  }
+  .text-glow-pink {
+    text-shadow: 0 0 15px rgba(255, 0, 60, 0.5), 0 0 30px rgba(255, 0, 60, 0.3);
+  }
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink;
+  }
+}
+
+/* Background grid effect */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
