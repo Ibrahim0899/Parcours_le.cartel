@@ -66,7 +66,7 @@ export const learners: Learner[] = [
     role: "Consultante Innovation & R&D", 
     tools: ["Analyse Financière", "Veille Tech", "Veille Stratégique"], 
     image: "/images/learner-portrait.png", 
-    youtubeId: null,
+    youtubeId: "v3geLZnmVog",
     pitch: "Bonjour, je suis Simone. Après 20 ans d'une riche carrière dans le conseil bancaire qui a forgé mon esprit analytique, je mène aujourd'hui une reconversion audacieuse à la croisée de l'IT et du sport féminin. Le sport est un terrain d'avenir, porteur de puissants enjeux économiques et sociétaux sur lesquels je suis profondément engagée.\n\nJe mets à profit mes méthodes financières et ma lucidité (neutralité, analyse des signaux faibles) afin d'évaluer, de proposer et d'accompagner des solutions technologiques dédiées aux structures sportives avec un recul stratégique fort. À l'horizon de 3 ans, mon ambition est clairement tracée : devenir Consultante experte en Recherche & Développement de solutions innovantes dédiées tant au grand public qu'aux sportives de haut niveau.\n\nMon intégration au sein d'une startup Sport-Tech vous apporterait une capacité d'intelligence économique immédiate et une proactivité à toute épreuve.",
     portfolio: null
   }
