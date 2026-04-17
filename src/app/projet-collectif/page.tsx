@@ -33,27 +33,12 @@ export default function ProjetCollectif() {
       >
         <div className="relative rounded-3xl overflow-hidden glassmorphism p-2 border border-neon-blue/20 shadow-[0_0_60px_rgba(0,240,255,0.08)]">
           <div className="relative aspect-video rounded-2xl overflow-hidden bg-dark-bg group">
-            {/* Placeholder — remplacer par la vraie vidéo quand disponible */}
-            {/* <video src="/videos/trailer.mp4" controls className="w-full h-full object-cover" /> */}
-            <Image
-              src="/Parcours_le.cartel/images/project-preview.png"
-              alt="Aperçu du projet collectif"
-              fill
-              className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-[0_0_30px_rgba(0,240,255,0.3)]"
-              >
-                <PlayCircle className="w-10 h-10 text-white ml-1" />
-              </motion.div>
-              <p className="text-white/80 font-heading font-bold text-lg">
-                Trailer — Bientôt disponible
-              </p>
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/dnR-SdJaw3g?modestbranding=1&rel=0"
+              className="w-full h-full object-cover border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </motion.div>
