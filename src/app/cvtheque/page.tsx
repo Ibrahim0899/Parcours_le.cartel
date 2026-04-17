@@ -5,7 +5,7 @@ import { PlayCircle, User } from "lucide-react";
 import { learners } from "@/data/learners";
 
 export default function CVtheque() {
-  const learnersWithVideo = learners.filter((l) => l.video);
+  const learnersWithVideo = learners.filter((l) => l.youtubeId);
 
   return (
     <div className="container mx-auto px-6 md:px-12 py-12">
@@ -38,18 +38,19 @@ export default function CVtheque() {
           >
             {/* Video Player */}
             <div className="relative aspect-video bg-dark-bg">
-              <video
-                src={`/Parcours_le.cartel${learner.video}`}
-                className="w-full h-full object-cover"
-                controls
-                preload="metadata"
-                poster=""
-              />
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-0 transition-opacity">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                  <PlayCircle className="w-8 h-8 text-white ml-0.5" />
+              {learner.youtubeId === "A_REMPLIR_ID_YOUTUBE" ? (
+                <div className="w-full h-full flex flex-col items-center justify-center border-b border-white/5 bg-black">
+                  <PlayCircle size={48} className="text-gray-600 mb-3" />
+                  <p className="text-gray-500 text-sm">Vidéo YouTube à lier</p>
                 </div>
-              </div>
+              ) : (
+                <iframe
+                  src={`https://www.youtube.com/embed/${learner.youtubeId}?modestbranding=1&rel=0`}
+                  className="w-full h-full object-cover border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
             </div>
 
             {/* Info */}
@@ -84,14 +85,14 @@ export default function CVtheque() {
       </div>
 
       {/* Learners without video */}
-      {learners.filter((l) => !l.video).length > 0 && (
+      {learners.filter((l) => !l.youtubeId).length > 0 && (
         <div className="mt-16">
           <h2 className="text-2xl font-heading font-bold mb-8 text-center text-gray-400">
             Vidéos en cours de production
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {learners
-              .filter((l) => !l.video)
+              .filter((l) => !l.youtubeId)
               .map((learner, i) => (
                 <motion.div
                   key={learner.id}
