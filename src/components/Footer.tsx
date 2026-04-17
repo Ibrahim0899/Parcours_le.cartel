@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Gamepad2, ArrowUpRight, Phone, Mail } from "lucide-react";
+import { Gamepad2, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-50"></div>
       
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
-          <div className="md:col-span-2">
+          <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 group mb-4 inline-flex">
               <Gamepad2 className="w-7 h-7 text-neon-purple" />
               <span className="font-heading font-bold text-lg tracking-wider">
@@ -33,12 +33,12 @@ export default function Footer() {
             <h3 className="font-heading font-semibold text-white mb-4">Navigation</h3>
             <ul className="space-y-3">
               {[
-                { name: 'Le Parcours', href: '/parcours' },
-                { name: 'Intervenants', href: '/intervenants' },
-                { name: 'Apprenants', href: '/apprenants' },
-                { name: 'Projet Collectif', href: '/projet' },
-                { name: 'Partenariat', href: '/partenariat' },
-                { name: 'Impact', href: '/impact' }
+                { name: 'Accueil', href: '/' },
+                { name: 'CVthèque', href: '/cvtheque' },
+                { name: 'Outils utilisés', href: '/outils' },
+                { name: 'Pitch', href: '/pitch' },
+                { name: 'Projet collectif', href: '/projet-collectif' },
+                { name: 'Projet perso', href: '/projet-perso' },
               ].map((item, i) => (
                 <li key={i}>
                   <Link 
@@ -53,16 +53,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-white mb-4">Entreprises</h3>
-            <p className="text-gray-400 text-sm mb-4">
-              À la recherche de nouveaux talents formés aux outils digitaux (IA, montage, intégration) ?
-            </p>
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center gap-2 text-sm text-neon-pink hover:text-white transition-colors"
-            >
-              Accéder aux CV <ArrowUpRight size={16} />
-            </Link>
+            <h3 className="font-heading font-semibold text-white mb-4">Contact</h3>
+            <div className="space-y-3 text-sm text-gray-400">
+              <p>📧 contact.lecartel94@gmail.com</p>
+              <p>📱 06 95 54 02 34</p>
+              <p className="pt-2 text-gray-500">
+                Parcours d&apos;Inclusion via le E-sport et les Métiers du Numérique — Session 2
+              </p>
+            </div>
           </div>
 
         </div>
@@ -71,10 +69,6 @@ export default function Footer() {
           <p className="text-gray-500 text-xs">
             © {new Date().getFullYear()} Le C.A.R.T.E.L. Tous droits réservés.
           </p>
-          <div className="flex gap-4 text-xs text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
-            <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
-          </div>
         </div>
 
         <div className="text-center w-full pb-2">

@@ -9,12 +9,11 @@ import clsx from "clsx";
 
 const navLinks = [
   { name: "Accueil", href: "/" },
-  { name: "Le Parcours", href: "/parcours" },
-  { name: "Intervenants", href: "/intervenants" },
-  { name: "Apprenants", href: "/apprenants" },
-  { name: "Projet", href: "/projet" },
-  { name: "Partenariat", href: "/partenariat" },
-  { name: "Impact & Vision", href: "/impact" },
+  { name: "CVthèque", href: "/cvtheque" },
+  { name: "Outils", href: "/outils" },
+  { name: "Pitch", href: "/pitch" },
+  { name: "Projet collectif", href: "/projet-collectif" },
+  { name: "Projet perso", href: "/projet-perso" },
 ];
 
 export default function Navigation() {
@@ -46,7 +45,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -54,8 +53,8 @@ export default function Navigation() {
                 key={link.name}
                 href={link.href}
                 className={clsx(
-                  "text-sm font-medium transition-colors hover:text-neon-blue",
-                  isActive ? "text-neon-blue relative" : "text-gray-300"
+                  "text-sm font-medium transition-colors hover:text-neon-blue relative",
+                  isActive ? "text-neon-blue" : "text-gray-300"
                 )}
               >
                 {link.name}
@@ -68,18 +67,11 @@ export default function Navigation() {
               </Link>
             );
           })}
-          
-          <Link
-            href="/contact"
-            className="ml-4 px-5 py-2.5 rounded-full bg-white/5 border border-neon-pink/50 text-neon-pink font-semibold hover:bg-neon-pink hover:text-white hover:shadow-[0_0_20px_rgba(255,0,60,0.6)] transition-all duration-300 text-sm"
-          >
-            Nous contacter
-          </Link>
         </nav>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white hover:text-neon-blue transition-colors"
+          className="lg:hidden text-white hover:text-neon-blue transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,14 +83,14 @@ export default function Navigation() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 w-full glassmorphism border-t border-white/10 p-6 flex flex-col gap-4 md:hidden"
+          className="absolute top-full left-0 w-full glassmorphism border-t border-white/10 p-6 flex flex-col gap-4 lg:hidden"
         >
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               className={clsx(
-                "text-lg font-medium",
+                "text-lg font-medium py-2",
                 pathname === link.href ? "text-neon-blue" : "text-gray-300"
               )}
               onClick={() => setIsOpen(false)}
@@ -106,13 +98,6 @@ export default function Navigation() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="mt-4 text-center py-3 rounded-lg bg-neon-pink/20 border border-neon-pink/50 text-neon-pink font-bold"
-            onClick={() => setIsOpen(false)}
-          >
-            Nous contacter
-          </Link>
         </motion.div>
       )}
     </header>
